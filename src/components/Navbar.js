@@ -3,26 +3,38 @@ import "../index.css";
 import { FaBars } from "react-icons/fa";
 import { AppContext } from "./context";
 import Sidebar from "./Sidebar";
+import logo from "../images/logo.svg";
 
 const Navbar = () => {
   const { openSidebar, isSidebarOpen, openSubmenu, closeSubmenu } =
     useContext(AppContext);
-  console.log(openSidebar);
+  // console.log(openSidebar);
 
   return (
-    <nav className="nav">
-      <div className="nav-icons">
-        <button className="open-nav-icon" onClick={openSidebar}>
-          <FaBars />
-        </button>
-
-        <ul className={`${isSidebarOpen ? "menu show-menu" : "menu"}`}>
-          <li>About</li>
-          <li>Contact</li>
-          <li>News</li>
+    <section className="nav-section">
+      <nav className="nav">
+        <div className="logo-and-bars">
+          <header className="nav-header">
+            <img src={logo} alt="logo" />
+          </header>
+          <button className="show-nav-icon" onClick={openSidebar}>
+            <FaBars />
+          </button>
+        </div>
+        <ul className="nav-ul">
+          <li>
+            <button className="link-btn">products</button>
+          </li>
+          <li>
+            <button className="link-btn">developers</button>
+          </li>
+          <li>
+            <button className="link-btn">company</button>
+          </li>
         </ul>
-      </div>
-    </nav>
+        <button className="btn signin-btn">Sign in</button>
+      </nav>
+    </section>
   );
 };
 
