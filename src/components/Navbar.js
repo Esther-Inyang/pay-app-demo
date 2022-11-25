@@ -8,7 +8,15 @@ import logo from "../images/logo.svg";
 const Navbar = () => {
   const { openSidebar, isSidebarOpen, openSubmenu, closeSubmenu } =
     useContext(AppContext);
-  // console.log(openSidebar);
+
+  const displaySubmenu = (e) => {
+    const page = e.target.textContent;
+    const tempBtn = e.target.getBoundingClientRect();
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+
+    openSubmenu(page, { center, bottom });
+  };
 
   return (
     <section className="nav-section">
@@ -23,13 +31,19 @@ const Navbar = () => {
         </div>
         <ul className="nav-ul">
           <li>
-            <button className="link-btn">products</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              products
+            </button>
           </li>
           <li>
-            <button className="link-btn">developers</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              developers
+            </button>
           </li>
           <li>
-            <button className="link-btn">company</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              company
+            </button>
           </li>
         </ul>
         <button className="btn signin-btn">Sign in</button>

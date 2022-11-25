@@ -42,6 +42,7 @@ body {
   justify-content: center;
   background-color: black;
   transition: all 0.2s linear;
+  border-radius: 5px;
 }
 
 .show-nav-icon:hover {
@@ -187,10 +188,11 @@ body {
   top: 1rem;
   right: 1rem;
   background-color: transparent;
+  transition: all 0.2s linear;
 }
 
 .sidebar-close-btn:hover {
-  background-color: black;
+  color: black;
 }
 
 .sidebar-pages-section {
@@ -230,6 +232,39 @@ body {
 .link-label {
 }
 
+/* Submenu - section */
+.submenu {
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: none;
+  padding: 2rem;
+  border-radius: 5px;
+  transition: all 0.3s linear;
+}
+
+.submenu::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.submenu.show {
+  display: block;
+}
+
 @media screen and (min-width: 800px) {
   /* Navbar - Component */
   .nav {
@@ -244,7 +279,7 @@ body {
     margin-top: 2rem;
   }
 
-  .open-nav-icon {
+  .show-nav-icon {
     display: none;
   }
 
